@@ -1,5 +1,13 @@
 <template>
-  <div class="">
+  <div class="map-container">
+    <div class="legend" :style="legendStyle()">
+      <ul>
+      <li class="legend-item" v-for="(bin, index) in settings.bins" :key="index">
+        <div :style="patchStyle(bin.color, symbolWidth, symbolHeight)"></div>
+        <div class="legend-label">{{ bin.label }}</div>
+      </li>
+      </ul>
+    </div>
     <svg
       width="100%" height="100%"
       x="190" y="129"
@@ -15,16 +23,15 @@
         class="map"
       >
         <path
-          v-for="country in displayItems" :key="country.id"
-          @click="handleClick(country.id)"
-          @mouseenter="handleHover(country.id)"
-          @mouseleave="handleLeave(country.id)"
-          :style="countryStyle(country.id)"
+          v-for="item in geography" :key="item.id"
+          @click="handleClick(item.id)"
+          @mouseenter="handleHover(item.id)"
+          @mouseleave="handleLeave(item.id)"
+          :style="countryStyle(item.id)"
           view
-          :id=country.id
-          :ref=country.id
-          :d="geography[country.id].d"
-          :fill="primaryFill"
+          :id=item.id
+          :ref=item.id
+          :d="item.d"
         ></path>
       </g>
     </svg>
@@ -39,54 +46,48 @@ export default {
     settings: Object,
     items: Array,
     geography: Object,
-    categories: Array,
-    datatype: String,
-    datakey: String,
+    displayField: Object,
   },
   data() {
     return {
+      initializedMap: false,
+      symbolHeight: 15,
+      symbolWidth: 10,
       focusedItem: null,
       displaySettings: {},
       displayItems: [],
     };
   },
   computed: {
-    highlightedCountryStyle() {
+    noDataStyle() {
       return {
-        fill: this.highlightColor,
-      };
-    },
-    focusedCountryStyle() {
-      return {
-        fill: this.focusColor,
-        transition: '.2s fill',
-      };
-    },
-    baseCountryStyle() {
-      return {
-        fill: this.primaryFill,
+        fill: this.settings.colors.noData.color,
         transition: '.2s fill',
         stroke: this.primaryStrokeColor,
+        'stroke-width': this.primaryStrokeWidth,
       };
     },
     backgroundColor() {
-      return this.settings.backgroundColor;
-    },
-    highlightColor() {
-      return this.settings.highlightColor;
+      return this.settings.colors.background.color;
     },
     focusColor() {
-      return this.settings.focusColor;
+      return this.settings.colors.focus.color;
     },
     primaryStrokeColor() {
-      return this.settings.primaryStrokeColor;
+      return this.settings.colors.primaryStroke.color;
     },
     primaryFill() {
-      return this.settings.primaryFill;
+      return this.settings.colors.noData.color;
+    },
+    primaryStrokeWidth() {
+      return this.settings.primaryStrokeWidth;
     },
   },
   watch: {
     items() {
+      this.initMap();
+    },
+    settings() {
       this.initMap();
     },
     backgroundColor(newval, oldval) {
@@ -97,31 +98,93 @@ export default {
     },
   },
   methods: {
+    patchStyle(color) {
+      return {
+        'background-color': color,
+        width: `${this.settings.legend.patch.width}px`,
+        height: `${this.settings.legend.patch.height}px`,
+      };
+    },
+    getFill(item) {
+      if (this.displayField.type === 'quantitative') {
+        let color = null;
+        this.settings.bins.some((bin) => {
+          if (item[this.displayField.name] >= bin.min
+          && item[this.displayField.name] <= bin.max) {
+            color = bin.color;
+            return true;
+          } return false;
+        });
+        return color;
+      }
+      if (this.displayField.type === 'qualitative') {
+        let color = null;
+        this.settings.bins.some((bin) => {
+          if (bin.values.includes(item[this.displayField.name])) {
+            color = bin.color;
+            return true;
+          }
+          return false;
+        });
+        return color;
+      }
+      // should be unreachable
+      return this.settings.colors.noData.color;
+    },
+    legendStyle() {
+      const fColor = this.settings.legend.colors.background.color;
+      return {
+        position: 'absolute',
+        bottom: 0,
+        margin: '1em',
+        padding: '0.5em',
+        'background-color': `rgb(${fColor.r}, ${fColor.g}, ${fColor.b}, ${fColor.a})`,
+        'border-radius': '3px',
+      };
+    },
     countryStyle(countryId) {
+      let fillColor = '';
+      if (!(countryId in this.displaySettings)) {
+        return this.noDataStyle;
+      }
       if (countryId === this.focusedItem || this.displaySettings[countryId].focused) {
-        return this.focusedCountryStyle;
+        fillColor = this.settings.colors.focus.color;
+      } else {
+        fillColor = this.displaySettings[countryId].fill;
       }
-      if (this.displaySettings[countryId].highlighted) {
-        return this.highlightedCountryStyle;
-      }
-      return this.baseCountryStyle;
+      return {
+        fill: fillColor,
+        transition: '.2s fill',
+        stroke: this.primaryStrokeColor,
+        'stroke-width': this.primaryStrokeWidth,
+      };
     },
     handleClick(countryId) {
-      console.log(countryId);
+      if (!this.displayItems.length) { return false; }
       this.focusedItem = countryId;
+      return true;
     },
     handleHover(countryId) {
+      if (!this.displayItems.length) { return false; }
+      if (!this.displaySettings[countryId]) {
+        console.log(countryId);
+        return false;
+      }
       this.displaySettings[countryId].focused = true;
+      return true;
     },
     handleLeave(countryId) {
+      if (!this.displayItems.length) { return false; }
       this.displaySettings[countryId].focused = false;
+      return true;
     },
     initMap() {
-      this.items.forEach((element) => {
-        const style = { focused: false, highlighted: false };
+      const displayableItems = this.items.filter((row) => row.id in this.geography);
+      displayableItems.forEach((element) => {
+        const style = { focused: false, highlighted: false, fill: this.getFill(element) };
         this.$set(this.displaySettings, element.id, style);
       });
-      this.displayItems = this.items;
+      this.displayItems = displayableItems;
     },
   },
   mounted() {
@@ -132,6 +195,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.map-container {
+  position: relative;
+}
+
 .country {
     fill: #cccccc;
 }
@@ -143,4 +215,13 @@ export default {
   justify-content: center;
   gap: 10px;
 }
+
+.legend-item {
+  display: flex;
+}
+
+.legend-label {
+  padding-left: 5px;
+}
+
 </style>

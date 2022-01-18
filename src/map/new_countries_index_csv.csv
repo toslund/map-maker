@@ -1,0 +1,192 @@
+name,id,categoricalCoolness,numericalCoolness
+French Guiana,GUF,Not very Cool,24
+France,FRA,Average Cool,90
+Afghanistan,AFG,Average Cool,17
+Angola,AGO,Average Cool,93
+Albania,ALB,Not very Cool,1
+Andorra,AND,Not very Cool,5
+United Arab Emirates,ARE,Not very Cool,90
+Argentina,ARG,Average Cool,6
+Armenia,ARM,Not very Cool,91
+French Southern Territories,ATF,Average Cool,74
+Australia,AUS,Average Cool,53
+Austria,AUT,Average Cool,84
+Azerbaijan,AZE,Average Cool,90
+Burundi,BDI,Average Cool,1
+Belgium,BEL,Average Cool,85
+Benin,BEN,Average Cool,52
+Burkina Faso,BFA,Not very Cool,1
+Bangladesh,BGD,Cool,8
+Bulgaria,BGR,Not very Cool,10
+Bahamas,BHS,Average Cool,26
+Bosnia and Herzegovina,BIH,Average Cool,29
+Belarus,BLR,Average Cool,52
+Belize,BLZ,Average Cool,88
+Bolivia (Plurinational State of),BOL,Average Cool,79
+Brazil,BRA,Average Cool,84
+Brunei Darussalam,BRN,Average Cool,48
+Bhutan,BTN,Average Cool,64
+Botswana,BWA,Average Cool,31
+Central African Republic,CAF,Average Cool,57
+Canada,CAN,Cool,20
+Switzerland,CHE,Cool,48
+Chile,CHL,Average Cool,45
+China,CHN,Average Cool,76
+Côte d'Ivoire,CIV,Average Cool,46
+Cameroon,CMR,Average Cool,65
+"Congo, Democratic Republic of the",COD,Average Cool,74
+Congo,COG,Average Cool,54
+Colombia,COL,Cool,46
+Comoros,COM,Average Cool,6
+Cabo Verde,CPV,Cool,48
+Costa Rica,CRI,Not very Cool,55
+Cuba,CUB,Average Cool,20
+Northern Cyprus,CYN,Cool,62
+Cyprus,CYP,Average Cool,65
+Czechia,CZE,Average Cool,49
+Germany,DEU,Cool,9
+Djibouti,DJI,Average Cool,11
+Denmark,DNK,Average Cool,35
+Dominican Republic,DOM,Average Cool,96
+Algeria,DZA,Cool,23
+Ecuador,ECU,Average Cool,29
+Egypt,EGY,Average Cool,79
+Eritrea,ERI,Average Cool,47
+Spain,ESP,Average Cool,60
+Estonia,EST,Average Cool,79
+Ethiopia,ETH,Average Cool,35
+Finland,FIN,Cool,87
+Fiji,FJI,Average Cool,60
+Falkland Islands (Malvinas),FLK,Average Cool,87
+Faroe Islands,FRO,Average Cool,68
+Gabon,GAB,Not very Cool,17
+United Kingdom of Great Britain and Northern Ireland,GBR,Cool,45
+Georgia,GEO,Not very Cool,39
+Ghana,GHA,Average Cool,18
+Guinea,GIN,Not very Cool,52
+Gambia,GMB,Average Cool,51
+Guinea-Bissau,GNB,Average Cool,23
+Equatorial Guinea,GNQ,Average Cool,55
+Greece,GRC,Average Cool,51
+Greenland,GRL,Average Cool,74
+Guatemala,GTM,Average Cool,42
+Guyana,GUY,Average Cool,28
+Hong Kong,HKG,Average Cool,34
+Honduras,HND,Average Cool,28
+Croatia,HRV,Average Cool,5
+Haiti,HTI,Cool,30
+Hungary,HUN,Average Cool,52
+Indonesia,IDN,Cool,58
+India,IND,Cool,38
+Ireland,IRL,Average Cool,11
+Iran (Islamic Republic of),IRN,Average Cool,33
+Iraq,IRQ,Average Cool,16
+Iceland,ISL,Average Cool,41
+Israel,ISR,Average Cool,14
+Italy,ITA,Average Cool,28
+Jamaica,JAM,Average Cool,43
+Jordan,JOR,Average Cool,36
+Japan,JPN,Average Cool,4
+Kashmir,KAS,Cool,19
+Kazakhstan,KAZ,Cool,51
+Kenya,KEN,Cool,59
+Kyrgyzstan,KGZ,Not very Cool,43
+Cambodia,KHM,Average Cool,92
+"Korea, Republic of",KOR,Average Cool,46
+Kosovo,KOS,Not very Cool,45
+Kuwait,KWT,Average Cool,25
+Lao People's Democratic Republic,LAO,Average Cool,60
+Lebanon,LBN,Cool,65
+Liberia,LBR,Average Cool,31
+Libya,LBY,Not very Cool,70
+Liechtenstein,LIE,Average Cool,1
+Sri Lanka,LKA,Average Cool,64
+Lesotho,LSO,Average Cool,7
+Lithuania,LTU,Average Cool,16
+Luxembourg,LUX,Cool,93
+Latvia,LVA,Average Cool,45
+Macao,MAC,Average Cool,77
+Saint Martin (French part),MAF,Not very Cool,45
+Morocco,MAR,Cool,22
+Monaco,MCO,Average Cool,92
+"Moldova, Republic of",MDA,Average Cool,94
+Madagascar,MDG,Cool,10
+Mexico,MEX,Cool,68
+North Macedonia,MKD,Average Cool,63
+Mali,MLI,Average Cool,60
+Myanmar,MMR,Cool,76
+Montenegro,MNE,Average Cool,56
+Mongolia,MNG,Average Cool,80
+Mozambique,MOZ,Not very Cool,2
+Mauritania,MRT,Not very Cool,50
+Mauritius,MUS,Average Cool,75
+Malawi,MWI,Average Cool,33
+Malaysia,MYS,Average Cool,86
+Namibia,NAM,Average Cool,62
+New Caledonia,NCL,Not very Cool,77
+Niger,NER,Average Cool,72
+Nigeria,NGA,Not very Cool,56
+Nicaragua,NIC,Average Cool,50
+Netherlands,NLD,Average Cool,2
+Norway,NOR,Average Cool,52
+Nepal,NPL,Cool,42
+New Zealand,NZL,Average Cool,37
+Oman,OMN,Average Cool,75
+Pakistan,PAK,Average Cool,82
+Panama,PAN,Average Cool,64
+Peru,PER,Average Cool,39
+Philippines,PHL,Average Cool,30
+Papua New Guinea,PNG,Ice Cold,25
+Poland,POL,Not very Cool,23
+Puerto Rico,PRI,Average Cool,66
+Korea (Democratic People's Republic of),PRK,Average Cool,23
+Portugal,PRT,Average Cool,73
+Paraguay,PRY,Cool,45
+Palestinian Territories,PSX,Not very Cool,16
+Qatar,QAT,Average Cool,53
+Romania,ROU,Cool,7
+Russian Federation,RUS,Average Cool,13
+Rwanda,RWA,Cool,94
+Western Sahara,SAH,Cool,75
+Saudi Arabia,SAU,Average Cool,85
+Sudan,SDN,Cool,37
+South Sudan,SSD,Cool,35
+Senegal,SEN,Average Cool,69
+South Georgia and the South Sandwich Islands,SGS,Average Cool,97
+Solomon Islands,SLB,Not very Cool,40
+Sierra Leone,SLE,Average Cool,3
+El Salvador,SLV,Average Cool,96
+San Marino,SMR,Average Cool,31
+Serbia,SRB,Average Cool,42
+Suriname,SUR,Average Cool,90
+Slovakia,SVK,Cool,64
+Slovenia,SVN,Average Cool,48
+Sweden,SWE,Average Cool,24
+Eswatini,SWZ,Average Cool,41
+Sint Maarten (Dutch part),SXM,Average Cool,39
+Syrian Arab Republic,SYR,Average Cool,16
+Chad,TCD,Average Cool,16
+Togo,TGO,Average Cool,4
+Thailand,THA,Cool,63
+Tajikistan,TJK,Average Cool,24
+Turkmenistan,TKM,Ice Cold,52
+Timor-Leste,TLS,Ice Cold,9
+Trinidad and Tobago,TTO,Average Cool,97
+Tunisia,TUN,Average Cool,35
+Turkey,TUR,Average Cool,88
+"Taiwan, Province of China",TWN,Not very Cool,77
+"Tanzania, United Republic of",TZA,Cool,83
+Uganda,UGA,Average Cool,1
+Ukraine,UKR,Average Cool,80
+Uruguay,URY,Not very Cool,73
+United States of America,USA,Average Cool,24
+Uzbekistan,UZB,Not very Cool,55
+Venezuela (Bolivarian Republic of),VEN,Average Cool,10
+Viet Nam,VNM,Cool,41
+Vanuatu,VUT,Not very Cool,44
+Samoa,WSM,Not very Cool,12
+Yemen,YEM,Average Cool,25
+South Africa,ZAF,Average Cool,51
+Zambia,ZMB,Average Cool,67
+Zimbabwe,ZWE,Average Cool,48
+Somalia,SOM,Average Cool,54
